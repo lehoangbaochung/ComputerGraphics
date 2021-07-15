@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Platforms>AnyCPU</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Asus\.nuget\packages\sharpgl.winforms\3.1.1\contentFiles\any\netcoreapp3.1\SharpGL.ico" />
+    <Content Remove="C:\Users\Asus\.nuget\packages\sharpgl.winforms\3.1.1\contentFiles\any\netcoreapp3.1\SharpGL.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Cube2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Cube2.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SharpGL" Version="3.1.1" />
+    <PackageReference Include="SharpGL.WinForms" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Code\C#\Solutions\ComputerGraphics\ComputerGraphics\ComputerGraphics.csproj" />
+    <ProjectReference Include="..\ComputerGraphics\ComputerGraphics.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

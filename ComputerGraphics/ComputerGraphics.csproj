@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Asus\.nuget\packages\sharpgl.winforms\3.1.1\contentFiles\any\netcoreapp3.1\SharpGL.ico" />
+    <Content Remove="C:\Users\Asus\.nuget\packages\sharpgl.winforms\3.1.1\contentFiles\any\netcoreapp3.1\SharpGL.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SharpGL" Version="3.1.1" />
+    <PackageReference Include="SharpGL.SceneGraph" Version="3.1.1" />
+    <PackageReference Include="SharpGL.WinForms" Version="3.1.1" />
+  </ItemGroup>
+
+</Project>
