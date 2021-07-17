@@ -24,11 +24,6 @@ namespace Game2048.Models
         /// </summary>
         public int Value { get; set; } = 2;
 
-        public Cube()
-        {
-
-        }
-
         /// <summary>
         /// Render to the provided instance of OpenGL
         /// </summary>
@@ -64,7 +59,7 @@ namespace Game2048.Models
         {
             //  Create the display list. 
             displayList = new DisplayList();
-
+            Lighting(gl);
             //  Generate the display list
             displayList.Generate(gl);
             displayList.New(gl, DisplayList.DisplayListMode.CompileAndExecute);
@@ -74,7 +69,6 @@ namespace Game2048.Models
             gl.Disable(OpenGL.GL_LIGHTING);
             gl.Disable(OpenGL.GL_TEXTURE_2D);
 
-            Lighting(gl);
             Transform();
             BindTexture(gl);
 

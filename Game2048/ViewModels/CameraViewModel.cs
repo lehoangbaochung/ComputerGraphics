@@ -2,7 +2,7 @@
 
 namespace Game2048.ViewModels
 {
-    class CameraViewModel : BaseViewModel
+    class CameraViewModel : MainViewModel
     {
         readonly CameraControl cameraControl;
 

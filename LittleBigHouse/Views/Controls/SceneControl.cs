@@ -8,11 +8,10 @@ namespace LittleBigHouse.Views.Controls
     {
         public override void Initialized(object sender, EventArgs e)
         {
-            // Remove design primitives
-            Scene.SceneContainer.Children.RemoveAt(0);
+            base.Initialized(sender, e);
 
+            Scene.SceneContainer.AddChild(new Column());
             Scene.SceneContainer.AddChild(new Wall());
-            Scene.SceneContainer.AddChild(new Tree());
         }
     }
 }

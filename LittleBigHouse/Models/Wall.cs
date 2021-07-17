@@ -1,99 +1,43 @@
 ﻿using ComputerGraphics;
-using ComputerGraphics.Helpers;
-using SharpGL;
-using SharpGL.SceneGraph;
-using SharpGL.SceneGraph.Core;
+using ComputerGraphics.Interfaces;
+using ComputerGraphics.Models;
 
 namespace LittleBigHouse.Models
 {
-    class Wall : SceneElement, IRenderable
+    class Wall : BaseSceneElement, IElementProperty
     {
-        DisplayList displayList;
+        public float Length { get; set; } = 40;
+        public float Width { get; set; } = 1;
+        public float Height { get; set; } = 10;
 
-        public void Render(OpenGL gl, RenderMode renderMode)
+        protected override void Draw()
         {
-            if (renderMode != RenderMode.Design) return;
-
-            if (displayList == null)
-                CreateDisplayList(gl);
-            else
-                displayList.Call(gl);
-        }
-
-        void CreateDisplayList(OpenGL gl)
-        {
-            displayList = new DisplayList();
-            displayList.Generate(gl);
-            displayList.New(gl, DisplayList.DisplayListMode.CompileAndExecute);
-
-            gl.PushAttrib(OpenGL.GL_CURRENT_BIT | OpenGL.GL_ENABLE_BIT | OpenGL.GL_LINE_BIT);
-            gl.Disable(OpenGL.GL_LIGHTING);
-            gl.Disable(OpenGL.GL_TEXTURE_2D);
-
-            Draw(gl);
-
-            gl.PopAttrib();
-            displayList.End(gl);
-        }
-
-        void Draw(OpenGL gl)
-        {
-            // tuong phai
-            gl.PushMatrix();
-            gl.Translate(0, 4, 0);
             OpenGLHelper.BindTexture(gl, Resource.Wall);
-            DrawHelper.RenderBox(gl, 10, 1, 5);
-            gl.PopMatrix();
 
-            // tuong trai
+            // left
             gl.PushMatrix();
-            gl.Translate(0, -5, 0);
-            DrawHelper.RenderBox(gl, 10, 1, 5);
+            gl.Translate(-20, 20, 0);
+            OpenGLHelper.DrawBox(gl, Length, Width, Height);
             gl.PopMatrix();
 
-            // tuong truoc 1
+            // behind
             gl.PushMatrix();
-            gl.Translate(0, 1, 0);
-            DrawHelper.RenderBox(gl, 1, 3, 5);
+            gl.Rotate(90, 0, 0, 1);
+            gl.Translate(-20, -21, 0);
+            OpenGLHelper.DrawBox(gl, Length, Width, Height);
             gl.PopMatrix();
 
-            // tuong truoc 2
+            // right-1
             gl.PushMatrix();
-            gl.Translate(0, -4, 0);
-            DrawHelper.RenderBox(gl, 1, 3, 5);
+            gl.Translate(-20, -21, 0);
+            OpenGLHelper.DrawBox(gl, Length / 2, Width, Height);
             gl.PopMatrix();
 
-            // tuong sau
+            // right-2
             gl.PushMatrix();
-            gl.Translate(9, -4, 0);
-            DrawHelper.RenderBox(gl, 1, 8, 5);
+            gl.Translate(6, -21, 0);
+            OpenGLHelper.DrawBox(gl, 14, Width, Height);
             gl.PopMatrix();
-
-            // mai nha truoc
-            gl.PushMatrix();
-            gl.Translate(0, -5, 5);
-            gl.Rotate(0, 45, 0);
-            OpenGLHelper.BindTexture(gl, Resource.mai_nha);
-            DrawHelper.RenderBox(gl, 1, 10, 6);
-            gl.PopMatrix();
-
-            // mai nha sau
-            gl.PushMatrix();
-            gl.Translate(9, -5, 5);
-            gl.Rotate(0, -45, 0);
-            DrawHelper.RenderBox(gl, 1, 10, 6);
-            gl.PopMatrix();
-
-            gl.PushMatrix();
-            gl.Translate(-15, -15, -1);
-            OpenGLHelper.BindTexture(gl, Resource.GreenLeaf);
-            OpenGLHelper.DrawBox(gl, 30, 30, 1);
-            gl.PopMatrix();
-
-            gl.PushMatrix();
-            
-            gl.PopMatrix();
-
         }
     }
 }

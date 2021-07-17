@@ -10,42 +10,42 @@ namespace ComputerGraphics
         #region Color
         public static void SetMaterialColor(OpenGL gl, ConsoleColor color = default)
         {
-            float[] ambient = { 0.0f, 0.0f, 0.0f, 1.0f };
-            float[] diffuse = { 0.0f, 0.0f, 0.0f, 1.0f };
+            float[] ambient = { 0, 0, 0, 1 };
+            float[] diffuse = { 0, 0, 0, 1 };
 
             switch (color)
             {
                 case ConsoleColor.Red:
-                    ambient[0] = 1.0f;
-                    diffuse[0] = 1.0f;
+                    ambient[0] = 1;
+                    diffuse[0] = 1;
                     break;
                 case ConsoleColor.Green:
-                    ambient[1] = 1.0f;
-                    diffuse[1] = 1.0f;
+                    ambient[1] = 1;
+                    diffuse[1] = 1;
                     break;
                 case ConsoleColor.Blue:
-                    ambient[2] = 1.0f;
-                    diffuse[2] = 1.0f;
+                    ambient[2] = 1;
+                    diffuse[2] = 1;
                     break;
                 case ConsoleColor.Yellow:
-                    ambient[0] = 1.0f;
-                    ambient[1] = 1.0f;
-                    diffuse[0] = 1.0f;
-                    diffuse[1] = 1.0f;
+                    ambient[0] = 1;
+                    ambient[1] = 1;
+                    diffuse[0] = 1;
+                    diffuse[1] = 1;
                     break;
                 case ConsoleColor.Cyan:
-                    ambient[1] = 1.0f;
-                    ambient[2] = 1.0f;
-                    diffuse[1] = 1.0f;
-                    diffuse[2] = 1.0f;
+                    ambient[1] = 1;
+                    ambient[2] = 1;
+                    diffuse[1] = 1;
+                    diffuse[2] = 1;
                     break;
                 case ConsoleColor.White:
-                    ambient[0] = 1.0f;
-                    ambient[1] = 1.0f;
-                    ambient[2] = 1.0f;
-                    diffuse[0] = 1.0f;
-                    diffuse[1] = 1.0f;
-                    diffuse[2] = 1.0f;
+                    ambient[0] = 1;
+                    ambient[1] = 1;
+                    ambient[2] = 1;
+                    diffuse[0] = 1;
+                    diffuse[1] = 1;
+                    diffuse[2] = 1;
                     break;
                 case ConsoleColor.Black:
                 default:
@@ -69,20 +69,20 @@ namespace ComputerGraphics
             switch (color)
             {
                 case ConsoleColor.White:
-                    gl.ClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+                    gl.ClearColor(1, 1, 1, 1);
                     break;
                 case ConsoleColor.Red:
-                    gl.ClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+                    gl.ClearColor(1, 0, 0, 1);
                     break;
                 case ConsoleColor.Green:
-                    gl.ClearColor(0.0f, 1.0f, 0.0f, 1.0f);
+                    gl.ClearColor(0, 1, 0, 1);
                     break;
                 case ConsoleColor.Blue:
-                    gl.ClearColor(0.0f, 0.0f, 1.0f, 1.0f);
+                    gl.ClearColor(0, 0, 1, 1);
                     break;
                 case ConsoleColor.Black:
                 default:
-                    gl.ClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+                    gl.ClearColor(0, 0, 0, 1);
                     break;
             }
         }
@@ -93,7 +93,7 @@ namespace ComputerGraphics
         {
             // front
             gl.Begin(OpenGL.GL_QUADS);
-            gl.Normal(0.0f, 0.0f, 1.0f);
+            gl.Normal(0, 0, 1);
             gl.TexCoord(0, 0); gl.Vertex(0, 0, z);
             gl.TexCoord(0, 1); gl.Vertex(0, y, z);
             gl.TexCoord(1, 1); gl.Vertex(x, y, z);
@@ -102,7 +102,7 @@ namespace ComputerGraphics
 
             // behind
             gl.Begin(OpenGL.GL_QUADS);
-            gl.Normal(0.0f, 0.0f, -1.0f);
+            gl.Normal(0, 0, -1);
             gl.TexCoord(0, 0); gl.Vertex(0, 0, 0);
             gl.TexCoord(1, 0); gl.Vertex(x, 0, 0);
             gl.TexCoord(1, 1); gl.Vertex(x, y, 0);
@@ -111,7 +111,7 @@ namespace ComputerGraphics
 
             // left
             gl.Begin(OpenGL.GL_QUADS);
-            gl.Normal(-1.0f, 0.0f, 0.0f);
+            gl.Normal(-1, 0, 0);
             gl.TexCoord(0, 0); gl.Vertex(0, 0, 0);
             gl.TexCoord(0, 1); gl.Vertex(0, 0, z);
             gl.TexCoord(1, 1); gl.Vertex(0, y, z);
@@ -120,7 +120,7 @@ namespace ComputerGraphics
 
             // right
             gl.Begin(OpenGL.GL_QUADS);
-            gl.Normal(1.0f, 0.0f, 0.0f);
+            gl.Normal(1, 0, 0);
             gl.TexCoord(0, 0); gl.Vertex(x, 0, z);
             gl.TexCoord(0, 1); gl.Vertex(x, 0, 0);
             gl.TexCoord(1, 1); gl.Vertex(x, y, 0);
@@ -129,7 +129,7 @@ namespace ComputerGraphics
 
             // top
             gl.Begin(OpenGL.GL_QUADS);
-            gl.Normal(0.0f, 1.0f, 0.0f);
+            gl.Normal(0, 1, 0);
             gl.TexCoord(0, 0); gl.Vertex(0, y, 0);
             gl.TexCoord(1, 0); gl.Vertex(x, y, 0);
             gl.TexCoord(1, 1); gl.Vertex(x, y, z);
@@ -138,7 +138,7 @@ namespace ComputerGraphics
 
             // bottom
             gl.Begin(OpenGL.GL_QUADS);
-            gl.Normal(0.0f, -1.0f, 0.0f);
+            gl.Normal(0, -1, 0);
             gl.TexCoord(0, 0); gl.Vertex(0, 0, 0);
             gl.TexCoord(1, 0); gl.Vertex(x, 0, 0);
             gl.TexCoord(1, 1); gl.Vertex(x, 0, z);

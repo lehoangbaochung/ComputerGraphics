@@ -1,18 +1,29 @@
 ﻿using ComputerGraphics.Interfaces;
+using ComputerGraphics.Models;
 using SharpGL;
 using SharpGL.SceneGraph;
 using SharpGL.SceneGraph.Effects;
-using SharpGL.SceneGraph.Primitives;
 using System;
 using System.Windows.Forms;
 
 namespace ComputerGraphics.Views.Controls
 {
+    /// <summary>
+    /// A base control of SceneControl extends from OpenGLControl that contains and draws a Scene object
+    /// </summary>
     public class BaseSceneControl : SceneControl, IOpenGLEvent, IControlEvent
     {
         readonly double aspectRatio = 1.8;
         readonly ArcBallEffect arcBallEffect = new();
         readonly Vertex cameraPosition = new(-10, -10, 30);
+
+        enum Direction
+        {
+            Front,
+            Behind,
+            Left,
+            Right
+        }
 
         public BaseSceneControl()
         {
@@ -36,14 +47,25 @@ namespace ComputerGraphics.Views.Controls
 
         public virtual void Initialized(object sender, EventArgs e)
         {
-            // Remove design primitives
-            Scene.SceneContainer.Children.RemoveAt(0);
-            
+            // Remove all default design primitives
+            Scene.SceneContainer.Children.Clear();
+
             // Add a grid
-            Scene.SceneContainer.AddChild(new Grid());
+            Scene.SceneContainer.AddChild(new Grid() { MinValue = -30, MaxValue = 30 });
         }
 
-        public virtual void OnKeyUp(object sender, KeyEventArgs e) { }
+        public virtual void OnKeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Home:
+                    ResetCurrentCamera();
+                    break;
+                case Keys.Up:
+                    ChangeCameraPosition(Direction.Right);
+                    break;
+            }
+        }
 
         public virtual void OnMouseDown(object sender, MouseEventArgs e)
         {
@@ -83,12 +105,30 @@ namespace ComputerGraphics.Views.Controls
         /// <summary>
         /// Set current camera back to original position
         /// </summary>
-        protected void ResetCurrentCamera()
+        void ResetCurrentCamera()
         {
             Scene.CurrentCamera.AspectRatio = aspectRatio;
             Scene.CurrentCamera.Position = cameraPosition;
 
             Scene.SceneContainer.RemoveEffect(arcBallEffect);
+        }
+
+        void ChangeCameraPosition(Direction direction)
+        {
+            var x = Scene.CurrentCamera.Position.X;
+            var y = Scene.CurrentCamera.Position.Y;
+            var z = Scene.CurrentCamera.Position.Z;
+
+            _ = direction switch
+            {
+                Direction.Front => x++,
+                Direction.Behind => x--,
+                Direction.Left => y--,
+                Direction.Right => z++,
+                _ => z
+            };
+
+            Scene.CurrentCamera.Position = new Vertex(x, y, z);
         }
     }
 }

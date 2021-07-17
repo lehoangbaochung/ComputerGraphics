@@ -25,18 +25,17 @@ namespace Game2048.Views.Forms
             // Initialize view model
             viewModel = new MainViewModel()
             {
-                BannerControl = bannerControl,
-                CameraControl = gameControl2D,
-                GameControl = gameControl3D,
-                MoveControl = moveControl,
-                ScoreControl = scoreControl
+                gameViewModel = new GameViewModel(gameControl3D)
+                {
+                    BannerControl = bannerControl,
+                    ScoreControl = scoreControl,
+                    MoveControl = moveControl
+                },
+                cameraViewModel = new CameraViewModel(gameControl2D),
             };
 
             // Delegate KeyUp event for view model
             KeyUp += viewModel.KeyUp;
-            
-            // Create a random cube then display it on the screen
-            viewModel.CreateRandomCube();
         }  
     }
 }
