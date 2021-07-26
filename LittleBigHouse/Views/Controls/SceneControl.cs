@@ -1,10 +1,9 @@
-﻿using ComputerGraphics.Views.Controls;
-using LittleBigHouse.Models;
+﻿using LittleBigHouse.Models;
 using System;
 
 namespace LittleBigHouse.Views.Controls
 {
-    class SceneControl : BaseSceneControl
+    class SceneControl : ComputerGraphics.Views.Controls.SceneControl
     {
         public override void Initialized(object sender, EventArgs e)
         {
@@ -12,6 +11,8 @@ namespace LittleBigHouse.Views.Controls
 
             Scene.SceneContainer.AddChild(new Column());
             Scene.SceneContainer.AddChild(new Wall());
+            Scene.SceneContainer.AddChild(new Sofa());
+            Scene.SceneContainer.AddChild(new Table());
         }
     }
 }

@@ -5,7 +5,10 @@ using System.Windows.Forms;
 
 namespace ComputerGraphics.Views.Controls
 {
-    public class BaseOpenGLControl : OpenGLControl, IOpenGLEvent, IOpenGLLight, IOpenGLMaterial
+    /// <summary>
+    /// A basic OpenGL control object extends from OpenGLControl, it gives all of the basic OpenGL functionality
+    /// </summary>
+    public class OpenGLControl : SharpGL.OpenGLControl, IOpenGLEvent, IOpenGLLight, IOpenGLMaterial
     {
         public float[] LightPosition { get; set; } = { 0, 0, 1, 0 };
         public float[] Ambient { get; set; } = { 1, 0, 0, 1 };
@@ -13,7 +16,7 @@ namespace ComputerGraphics.Views.Controls
         public float[] Diffuse { get; set; } = { 1, 1, 1, 1 };
         public float Shininess { get; set; } = 50;
 
-        public BaseOpenGLControl()
+        public OpenGLControl()
         {
             Dock = DockStyle.Fill;
             BorderStyle = BorderStyle.Fixed3D;
@@ -32,9 +35,7 @@ namespace ComputerGraphics.Views.Controls
         public virtual void Draw(object sender, RenderEventArgs args)
         {
             OpenGLHelper.SetBackgroundColor(OpenGL, ConsoleColor.White);
-
             OpenGL.LoadIdentity();
-            OpenGL.LookAt(10.0, 10.0, 15.0, 0.0, 0.0, 0.0, 0.0, 5.0, 0.0);
 
             Render();
 

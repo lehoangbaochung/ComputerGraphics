@@ -2,7 +2,7 @@
 
 namespace ComputerGraphics.Models
 {
-    class Grid : BaseSceneElement
+    class Grid : SceneElement
     {
         public float LineWidth { get; set; } = 1.0f;
         public int MinValue { get; set; } = -10;

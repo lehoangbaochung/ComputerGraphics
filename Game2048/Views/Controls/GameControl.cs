@@ -9,7 +9,7 @@ namespace Game2048.Views.Controls
     /// <summary>
     /// The main control of game
     /// </summary>
-    class GameControl : BaseSceneControl
+    class GameControl : SceneControl
     {
         public override void Initialized(object sender, EventArgs e)
         {

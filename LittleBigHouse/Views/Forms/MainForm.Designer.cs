@@ -4,12 +4,12 @@ namespace LittleBigHouse.Views.Forms
     partial class MainForm
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -24,8 +24,8 @@ namespace LittleBigHouse.Views.Forms
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -55,7 +55,6 @@ namespace LittleBigHouse.Views.Forms
             this.Controls.Add(this.sceneControl1);
             this.Name = "MainForm";
             this.Text = "Little Big House";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sceneControl1)).EndInit();
             this.ResumeLayout(false);
 
@@ -66,4 +65,3 @@ namespace LittleBigHouse.Views.Forms
         private Controls.SceneControl sceneControl1;
     }
 }
-

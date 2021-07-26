@@ -1,41 +1,16 @@
 ﻿using ComputerGraphics;
-using ComputerGraphics.Interfaces;
-using SharpGL;
-using System;
-using System.Windows.Forms;
+using ComputerGraphics.Views.Controls;
 
 namespace Game2048.Views.Controls
 {
-    class CameraControl : OpenGLControl, IOpenGLEvent
+    class CameraControl : OpenGLControl
     {
-        readonly OpenGL gl;
-
-        public CameraControl()
+        protected override void Render()
         {
-            gl = OpenGL;
-            Dock = DockStyle.Fill;
-            BorderStyle = BorderStyle.Fixed3D;
-
-            OpenGLDraw += Draw;
-            OpenGLInitialized += Initialized;
-        }
-
-        public void Initialized(object sender, EventArgs e)
-        {
-            OpenGLHelper.EnableLighting(gl);
-        }
-
-        public void Draw(object sender, RenderEventArgs args)
-        {
-            OpenGLHelper.SetBackgroundColor(gl, ConsoleColor.White);
-
-            gl.LoadIdentity();
-            gl.LookAt(0, 0, 40, 0, 0, 0, 0, 5, 0);
-
-            OpenGLHelper.DrawGrid(gl, -10, 10);
-            OpenGLHelper.DrawCube(gl, 2.5f);
-
-            gl.Flush();
+            OpenGL.LookAt(0, 0, 40, 0, 0, 0, 0, 5, 0);
+            OpenGLHelper.DrawGrid(OpenGL, -10, 10);
+            OpenGLHelper.DrawCube(OpenGL, 2.5f);
+            OpenGL.Flush();
         }
     }
 }

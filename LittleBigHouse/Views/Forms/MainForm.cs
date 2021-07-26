@@ -1,18 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace LittleBigHouse.Views.Forms
+﻿namespace LittleBigHouse.Views.Forms
 {
-    public partial class MainForm : Form
+    public partial class MainForm : ComputerGraphics.Views.Forms.Form
     {
-        public MainForm()
-        {
-            InitializeComponent();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
+        public MainForm() => InitializeComponent();
     }
 }

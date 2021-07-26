@@ -1,19 +1,18 @@
 ﻿using ComputerGraphics;
-using ComputerGraphics.Interfaces;
 using ComputerGraphics.Models;
+using System.Drawing;
 
 namespace LittleBigHouse.Models
 {
-    class Column : BaseSceneElement, IElementProperty
+    class Column : SceneElement
     {
         public float Length { get; set; } = 1;
         public float Width { get; set; } = 1;
-        public float Height { get; set; } = 10;
+        public float Height { get; set; } = 20;
+        public Bitmap TextureImage { get; set; } = Resource.phong_nen_cam;
 
         protected override void Draw()
         {
-            //OpenGLHelper.BindTexture(gl, Resource.phong_nen_cam);
-
             // center
             gl.PushMatrix();
             OpenGLHelper.DrawBox(gl, Length, Width, Height);
@@ -21,25 +20,25 @@ namespace LittleBigHouse.Models
 
             // behind-left
             gl.PushMatrix();
-            gl.Translate(20, 20, 0);
+            gl.Translate(50, 50, 0);
             OpenGLHelper.DrawBox(gl, Length, Width, Height);
             gl.PopMatrix();
 
             // behind-right
             gl.PushMatrix();
-            gl.Translate(20, -21, 0);
+            gl.Translate(50, -51, 0);
             OpenGLHelper.DrawBox(gl, Length, Width, Height);
             gl.PopMatrix();
 
             // top-left
             gl.PushMatrix();
-            gl.Translate(-21, 20, 0);
+            gl.Translate(-51, 50, 0);
             OpenGLHelper.DrawBox(gl, Length, Width, Height);
             gl.PopMatrix();
 
             // top-right
             gl.PushMatrix();
-            gl.Translate(-21, -21, 0);
+            gl.Translate(-51, -51, 0);
             OpenGLHelper.DrawBox(gl, Length, Width, Height);
             gl.PopMatrix();
         }

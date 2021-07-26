@@ -4,7 +4,10 @@ using SharpGL.SceneGraph.Core;
 
 namespace ComputerGraphics.Models
 {
-    public class BaseSceneElement : SceneElement, IRenderable
+    /// <summary>
+    /// The base class for all elements in a scene
+    /// </summary>
+    public class SceneElement : SharpGL.SceneGraph.Core.SceneElement, IRenderable
     {
         protected OpenGL gl;
         protected DisplayList displayList;

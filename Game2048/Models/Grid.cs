@@ -1,56 +1,15 @@
-﻿using SharpGL;
-using SharpGL.SceneGraph;
-using SharpGL.SceneGraph.Core;
+﻿using ComputerGraphics.Models;
+using SharpGL;
+
 namespace Game2048.Models
 {
     /// <summary>
-    /// The Grid design time primitive is displays a grid in the scene.
+    /// The Grid design time primitive is displays a grid in the scene
     /// </summary>
-    class Grid : SceneElement, IRenderable
+    class Grid : SceneElement
     {
-        /// <summary>
-        /// The internal display list
-        /// </summary>
-        DisplayList displayList;
-
-        /// <summary>
-        /// Render to the provided instance of OpenGL.
-        /// </summary>
-        /// <param name="gl">The OpenGL instance.</param>
-        /// <param name="renderMode">The render mode.</param>
-        public void Render(OpenGL gl, RenderMode renderMode)
+        protected override void Draw()
         {
-            //  Design time primitives render only in design mode.
-            if (renderMode != RenderMode.Design)
-                return;
-
-            //  If we do not have the display list, we must create it.
-            //  Otherwise, we can simple call the display list.
-            if (displayList == null)
-                CreateDisplayList(gl);
-            else
-                displayList.Call(gl);
-        }
-
-        /// <summary>
-        /// Creates the display list.
-        /// This function draws the geometry as well as compiling it.
-        /// </summary>
-        void CreateDisplayList(OpenGL gl)
-        {
-            //  Create the display list
-            displayList = new DisplayList();
-
-            //  Generate the display list
-            displayList.Generate(gl);
-            displayList.New(gl, DisplayList.DisplayListMode.CompileAndExecute);
-
-            //  Push attributes, set the color
-            gl.PushAttrib(OpenGL.GL_CURRENT_BIT | OpenGL.GL_ENABLE_BIT | OpenGL.GL_LINE_BIT);
-            gl.Disable(OpenGL.GL_LIGHTING);
-            gl.Disable(OpenGL.GL_TEXTURE_2D);
-            gl.LineWidth(1.0f);
-
             //  Draw the grid lines
             gl.Begin(OpenGL.GL_LINES);
             for (int i = -10; i <= 10; i++)
@@ -96,12 +55,6 @@ namespace Game2048.Models
                 gl.Vertex(i, -10, 20);
             }
             gl.End();
-
-            //  Restore attributes
-            gl.PopAttrib();
-
-            //  End the display list
-            displayList.End(gl);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Windows.Forms;
+﻿using ComputerGraphics.Views.Forms;
 using Game2048.ViewModels;
 
 namespace Game2048.Views.Forms

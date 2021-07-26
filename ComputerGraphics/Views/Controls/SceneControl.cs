@@ -11,7 +11,7 @@ namespace ComputerGraphics.Views.Controls
     /// <summary>
     /// A base control of SceneControl extends from OpenGLControl that contains and draws a Scene object
     /// </summary>
-    public class BaseSceneControl : SceneControl, IOpenGLEvent, IControlEvent
+    public class SceneControl : SharpGL.SceneControl, IOpenGLEvent, IControlEvent
     {
         readonly double aspectRatio = 1.8;
         readonly ArcBallEffect arcBallEffect = new();
@@ -25,7 +25,7 @@ namespace ComputerGraphics.Views.Controls
             Right
         }
 
-        public BaseSceneControl()
+        public SceneControl()
         {
             Dock = DockStyle.Fill;
             BorderStyle = BorderStyle.Fixed3D;
@@ -51,7 +51,11 @@ namespace ComputerGraphics.Views.Controls
             Scene.SceneContainer.Children.Clear();
 
             // Add a grid
-            Scene.SceneContainer.AddChild(new Grid() { MinValue = -30, MaxValue = 30 });
+            Scene.SceneContainer.AddChild(new Grid() 
+            { 
+                MinValue = -50, 
+                MaxValue = 50 
+            });
         }
 
         public virtual void OnKeyUp(object sender, KeyEventArgs e)
@@ -105,7 +109,7 @@ namespace ComputerGraphics.Views.Controls
         /// <summary>
         /// Set current camera back to original position
         /// </summary>
-        void ResetCurrentCamera()
+        protected void ResetCurrentCamera()
         {
             Scene.CurrentCamera.AspectRatio = aspectRatio;
             Scene.CurrentCamera.Position = cameraPosition;
