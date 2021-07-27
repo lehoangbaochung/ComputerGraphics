@@ -17,14 +17,6 @@ namespace ComputerGraphics.Views.Controls
         readonly ArcBallEffect arcBallEffect = new();
         readonly Vertex cameraPosition = new(-10, -10, 30);
 
-        enum Direction
-        {
-            Front,
-            Behind,
-            Left,
-            Right
-        }
-
         public SceneControl()
         {
             Dock = DockStyle.Fill;
@@ -48,7 +40,7 @@ namespace ComputerGraphics.Views.Controls
         public virtual void Initialized(object sender, EventArgs e)
         {
             // Remove all default design primitives
-            Scene.SceneContainer.Children.Clear();
+            //Scene.SceneContainer.Children.Clear();
 
             // Add a grid
             Scene.SceneContainer.AddChild(new Grid() 
@@ -64,9 +56,6 @@ namespace ComputerGraphics.Views.Controls
             {
                 case Keys.Home:
                     ResetCurrentCamera();
-                    break;
-                case Keys.Up:
-                    ChangeCameraPosition(Direction.Right);
                     break;
             }
         }
@@ -115,24 +104,6 @@ namespace ComputerGraphics.Views.Controls
             Scene.CurrentCamera.Position = cameraPosition;
 
             Scene.SceneContainer.RemoveEffect(arcBallEffect);
-        }
-
-        void ChangeCameraPosition(Direction direction)
-        {
-            var x = Scene.CurrentCamera.Position.X;
-            var y = Scene.CurrentCamera.Position.Y;
-            var z = Scene.CurrentCamera.Position.Z;
-
-            _ = direction switch
-            {
-                Direction.Front => x++,
-                Direction.Behind => x--,
-                Direction.Left => y--,
-                Direction.Right => z++,
-                _ => z
-            };
-
-            Scene.CurrentCamera.Position = new Vertex(x, y, z);
         }
     }
 }

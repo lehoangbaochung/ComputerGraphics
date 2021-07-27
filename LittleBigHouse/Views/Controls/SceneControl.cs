@@ -8,7 +8,7 @@ namespace LittleBigHouse.Views.Controls
         public override void Initialized(object sender, EventArgs e)
         {
             base.Initialized(sender, e);
-
+            
             Scene.SceneContainer.AddChild(new Column());
             Scene.SceneContainer.AddChild(new Wall());
             Scene.SceneContainer.AddChild(new Sofa());

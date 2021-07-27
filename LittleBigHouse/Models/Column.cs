@@ -13,6 +13,8 @@ namespace LittleBigHouse.Models
 
         protected override void Draw()
         {
+            OpenGLHelper.BindTexture(gl, TextureImage);
+
             // center
             gl.PushMatrix();
             OpenGLHelper.DrawBox(gl, Length, Width, Height);
