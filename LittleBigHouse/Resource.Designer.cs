@@ -63,6 +63,16 @@ namespace LittleBigHouse {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cloud {
+            get {
+                object obj = ResourceManager.GetObject("Cloud", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cua {
             get {
                 object obj = ResourceManager.GetObject("cua", resourceCulture);
@@ -76,6 +86,16 @@ namespace LittleBigHouse {
         internal static System.Drawing.Bitmap cua_nha {
             get {
                 object obj = ResourceManager.GetObject("cua_nha", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Grass {
+            get {
+                object obj = ResourceManager.GetObject("Grass", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -146,6 +166,46 @@ namespace LittleBigHouse {
         internal static System.Drawing.Bitmap pphong_nen_nau_do {
             get {
                 object obj = ResourceManager.GetObject("pphong_nen_nau_do", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Little Big House.
+        /// </summary>
+        internal static string ProjectName {
+            get {
+                return ResourceManager.GetString("ProjectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question.
+        /// </summary>
+        internal static string QuestionCaption {
+            get {
+                return ResourceManager.GetString("QuestionCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Which you want to see the side of house?
+        ///Click &quot;Yes&quot; to see the inside of house.
+        ///Click &quot;No&quot; to see the outside of house.
+        ///Click &quot;Cancel&quot; to cancel this question..
+        /// </summary>
+        internal static string QuestionText {
+            get {
+                return ResourceManager.GetString("QuestionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Road {
+            get {
+                object obj = ResourceManager.GetObject("Road", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -15,7 +15,7 @@ namespace ComputerGraphics.Views.Controls
     {
         readonly double aspectRatio = 1.8;
         readonly ArcBallEffect arcBallEffect = new();
-        readonly Vertex cameraPosition = new(-10, -10, 30);
+        readonly Vertex cameraPosition = new(10, 10, 30);
 
         public SceneControl()
         {
@@ -56,6 +56,9 @@ namespace ComputerGraphics.Views.Controls
             {
                 case Keys.Home:
                     ResetCurrentCamera();
+                    break;
+                default:
+                    MoveCurrentCamera(sender, e);
                     break;
             }
         }
@@ -104,6 +107,38 @@ namespace ComputerGraphics.Views.Controls
             Scene.CurrentCamera.Position = cameraPosition;
 
             Scene.SceneContainer.RemoveEffect(arcBallEffect);
+        }
+
+        void MoveCurrentCamera(object sender, KeyEventArgs e)
+        {
+            var cameraPosition = Scene.CurrentCamera.Position;
+            var x = cameraPosition.X;
+            var y = cameraPosition.Y;
+            var z = cameraPosition.Z;
+
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    y++;
+                    break;
+                case Keys.Down:
+                    y--;
+                    break;
+                case Keys.Left:
+                    x++;
+                    break;
+                case Keys.Right:
+                    x--;
+                    break;
+                case Keys.PageUp:
+                    z++;
+                    break;
+                case Keys.PageDown:
+                    z--;
+                    break;
+            }
+
+            Scene.CurrentCamera.Position = new Vertex(x, y, z);
         }
     }
 }

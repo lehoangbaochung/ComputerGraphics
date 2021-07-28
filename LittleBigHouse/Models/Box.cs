@@ -1,12 +1,14 @@
-﻿using SharpGL.SceneGraph.Transformations;
+﻿using ComputerGraphics;
+using ComputerGraphics.Models;
+using SharpGL.SceneGraph.Transformations;
 using System.Drawing;
 
-namespace ComputerGraphics.Models
+namespace LittleBigHouse.Models
 {
-    public class Box : SceneElement
+    class Box : SceneElement
     {
-        public float Length { get; set; } = 2;
-        public float Width { get; set; } = 2;
+        public float Length { get; set; } = 1;
+        public float Width { get; set; } = 1;
         public float Height { get; set; } = 1;
         public Bitmap TextureImage { get; set; }
         public LinearTransformation Transformation { get; set; } 
@@ -18,10 +20,7 @@ namespace ComputerGraphics.Models
                 OpenGLHelper.BindTexture(gl, TextureImage);
             }
 
-            gl.PopMatrix();
-            gl.Translate(1, 1, 0);
             OpenGLHelper.DrawBox(gl, Length, Width, Height);
-            gl.PushMatrix();
         }
     }
 }
