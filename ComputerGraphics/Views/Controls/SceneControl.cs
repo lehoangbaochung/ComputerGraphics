@@ -14,8 +14,14 @@ namespace ComputerGraphics.Views.Controls
     public class SceneControl : SharpGL.SceneControl, IOpenGLEvent, IControlEvent
     {
         readonly double aspectRatio = 1.8;
+        readonly Vertex[] cameraPositions =
+        {
+            new(-10, -10, 30),
+            new(-10, 10, 30),
+            new(10, -10, 30),
+            new(10, 10, 30),
+        };
         readonly ArcBallEffect arcBallEffect = new();
-        readonly Vertex cameraPosition = new(-10, -10, 30);
 
         public SceneControl()
         {
@@ -24,7 +30,7 @@ namespace ComputerGraphics.Views.Controls
 
             DrawFPS = false;
             Scene.RenderBoundingVolumes = false;
-            Scene.CurrentCamera.Position = cameraPosition;
+            Scene.CurrentCamera.Position = cameraPositions[0];
 
             OpenGLInitialized += Initialized;
             OpenGLDraw += Draw;
@@ -39,10 +45,8 @@ namespace ComputerGraphics.Views.Controls
 
         public virtual void Initialized(object sender, EventArgs e)
         {
-            OpenGLHelper.SetBackgroundColor(OpenGL);
-
             // Remove all default design primitives
-            //Scene.SceneContainer.Children.Clear();
+            Scene.SceneContainer.Children.Clear();
 
             // Add a grid
             Scene.SceneContainer.AddChild(new Grid() 
@@ -58,6 +62,18 @@ namespace ComputerGraphics.Views.Controls
             {
                 case Keys.Home:
                     ResetCurrentCamera();
+                    break;
+                case Keys.D1:
+                    Scene.CurrentCamera.Position = cameraPositions[0];
+                    break;
+                case Keys.D2:
+                    Scene.CurrentCamera.Position = cameraPositions[1];
+                    break;
+                case Keys.D3:
+                    Scene.CurrentCamera.Position = cameraPositions[2];
+                    break;
+                case Keys.D4:
+                    Scene.CurrentCamera.Position = cameraPositions[3];
                     break;
                 default:
                     MoveCurrentCamera(sender, e);
@@ -86,7 +102,7 @@ namespace ComputerGraphics.Views.Controls
 
         public virtual void OnMouseUp(object sender, MouseEventArgs e)
         {
-            arcBallEffect.ArcBall.MouseUp(e.X, e.Y);
+            arcBallEffect.ArcBall.MouseUp(e.X, e.Y); 
         }
 
         public virtual void OnMouseWheel(object sender, MouseEventArgs e)
@@ -106,7 +122,7 @@ namespace ComputerGraphics.Views.Controls
         protected void ResetCurrentCamera()
         {
             Scene.CurrentCamera.AspectRatio = aspectRatio;
-            Scene.CurrentCamera.Position = cameraPosition;
+            Scene.CurrentCamera.Position = cameraPositions[0];
 
             Scene.SceneContainer.RemoveEffect(arcBallEffect);
         }

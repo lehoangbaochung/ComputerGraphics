@@ -12,6 +12,13 @@ namespace ComputerGraphics.Models
         protected OpenGL gl;
         protected DisplayList displayList;
 
+        public float[] LightPosition { get; set; } = { 0, 0, 1, 0 };
+        public float[] Ambient { get; set; } = { 1, 0, 0, 1 };
+        public float[] Specular { get; set; } = { 1, 1, 1, 1 };
+        public float[] Diffuse { get; set; } = { 0.5f, 0, 0, 1 };
+        public float Shininess { get; set; } = 50;
+        public bool EnableLighting { get; set; } = false;
+
         public void Render(OpenGL gl, RenderMode renderMode)
         {
             this.gl = gl;
@@ -32,8 +39,25 @@ namespace ComputerGraphics.Models
             displayList.New(gl, DisplayList.DisplayListMode.CompileAndExecute);
 
             gl.PushAttrib(OpenGL.GL_CURRENT_BIT | OpenGL.GL_ENABLE_BIT | OpenGL.GL_LINE_BIT);
-            gl.Disable(OpenGL.GL_LIGHTING);
-            gl.Disable(OpenGL.GL_TEXTURE_2D);
+
+            if (EnableLighting)
+            {
+                gl.Enable(OpenGL.GL_LIGHT0);
+                gl.Enable(OpenGL.GL_LIGHTING);
+                gl.Enable(OpenGL.GL_DEPTH_TEST);
+
+                gl.Light(OpenGL.GL_LIGHT0, OpenGL.GL_POSITION, LightPosition);
+                gl.Material(OpenGL.GL_FRONT_AND_BACK, OpenGL.GL_AMBIENT, Ambient);
+                gl.Material(OpenGL.GL_FRONT_AND_BACK, OpenGL.GL_DIFFUSE, Diffuse);
+                gl.Material(OpenGL.GL_FRONT_AND_BACK, OpenGL.GL_SPECULAR, Specular);
+                gl.Material(OpenGL.GL_FRONT, OpenGL.GL_SHININESS, Shininess);
+            }   
+            else
+            {
+                gl.Disable(OpenGL.GL_LIGHT0);
+                gl.Disable(OpenGL.GL_LIGHTING);
+                gl.Disable(OpenGL.GL_TEXTURE_2D);
+            }    
 
             Draw();
 

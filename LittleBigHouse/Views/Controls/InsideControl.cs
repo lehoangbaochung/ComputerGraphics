@@ -9,12 +9,13 @@ namespace LittleBigHouse.Views.Controls
         public override void Initialized(object sender, EventArgs e)
         {
             base.Initialized(sender, e);
+            //Scene.SceneContainer.Children.Clear();
 
             var wallSizes = new float[] 
             { 
                 100, // length
                 1, // thickness
-                10 // height
+                12 // height
             };
 
             var sofaSizes = new float[] 
@@ -23,15 +24,8 @@ namespace LittleBigHouse.Views.Controls
                 5, // width
                 1, // thickness
                 2, // height of feet
-                -35, // translateX
-                -45 // translateY
-            };
-
-            var bedAttributes = new float[]
-            {
-                15, // length
-                5, // width
-                1 // thickness
+                -25, // translateX
+                -25 // translateY
             };
 
             var sceneElements = new SceneElement[]
@@ -95,7 +89,7 @@ namespace LittleBigHouse.Views.Controls
                 {
                     Name = "The south wall of bedroom",
                     TextureImage = Resource.Wall,
-                    Length = wallSizes[0] / 4,
+                    Length = wallSizes[0] / 4 - 1,
                     Width = wallSizes[1],
                     Height = wallSizes[2],
                     Transformation = new()
@@ -133,7 +127,7 @@ namespace LittleBigHouse.Views.Controls
                 {
                     Name = "The south wall of bathroom",
                     TextureImage = Resource.Wall,
-                    Length = wallSizes[0] / 4,
+                    Length = wallSizes[0] / 4 - 1,
                     Width = wallSizes[1],
                     Height = wallSizes[2] / 5,
                     Transformation = new()
@@ -255,46 +249,130 @@ namespace LittleBigHouse.Views.Controls
                 },
                 #endregion
 
+                #region Doors and windows
+                new Box()
+                {
+                    Name = "The door of house",
+                    TextureImage = Resource.SmallDoor,
+                    Length = 10,
+                    Width = 1,
+                    Height = 8,
+                    Transformation = new()
+                    {
+                        RotateZ = 90,
+                        TranslateX = -wallSizes[0] / 2,
+                        TranslateY = 5
+                    }
+                },
+                new Box()
+                {
+                    Name = "The door of bedroom",
+                    TextureImage = Resource.BigDoor,
+                    Length = 10,
+                    Width = 1,
+                    Height = 8,
+                    Transformation = new()
+                    {
+                        RotateZ = 90,
+                        TranslateX = wallSizes[0] / 4,
+                        TranslateY = 5
+                    }
+                },
+                new Box()
+                {
+                    Name = "The windows of house",
+                    TextureImage = Resource.Windows,
+                    Length = 10,
+                    Width = wallSizes[1],
+                    Height = 5,
+                    Transformation = new()
+                    {
+                        TranslateY = -wallSizes[0] / 2,
+                        TranslateZ = 3
+                    }
+                },
+                #endregion
+
                 new Box()
                 {
                     Name = "The lawn carpet",
                     TextureImage = Resource.Lawn,
-                    Length = 50,
-                    Width = 10,
+                    Length = 100,
+                    Width = 20,
                     Height = 0,
                     Transformation = new()
                     {
                         RotateZ = 90,
-                        TranslateX = -40,
+                        TranslateX = -30,
                         TranslateY = -50
                     }
                 },
 
                 new Box()
                 {
-                    Name = "The water",
+                    Name = "Water",
                     TextureImage = Resource.Water,
                     Length = 25,
                     Width = 25,
                     Height = 0,
                     Transformation = new()
                     {
-                        TranslateY = wallSizes[0] / 4
+                        TranslateY = wallSizes[0] / 4,
+                        TranslateZ = 1
                     }
                 },
-
                 new Box()
                 {
-                    Name = "The cabinet in bedroom",
+                    Name = "Cabinet",
                     TextureImage = Resource.Cabinet,
+                    Length = 10,
+                    Width = 2,
+                    Height = 8,
+                    Transformation = new()
+                    {
+                        TranslateX = 35
+                    }
+                },
+                new Box()
+                {
+                    Name = "Bookshelf",
+                    TextureImage = Resource.Bookshelf,
                     Length = 15,
                     Width = 2,
+                    Height = 8,
+                    Transformation = new()
+                    {
+                        RotateZ = 90,
+                        TranslateX = 48,
+                        TranslateY = 25
+                    }
+                },
+                new Box()
+                {
+                    Name = "Television",
+                    TextureImage = Resource.Television,
+                    Length = 1,
+                    Width = 10,
                     Height = 5,
                     Transformation = new()
                     {
                         RotateZ = 90,
-                        TranslateX = 30,
-                        TranslateY = 3
+                        TranslateX = -10,
+                        TranslateY = wallSizes[0] / 2 - 1,
+                        TranslateZ = 3
+                    }
+                },
+                new Box()
+                {
+                    Name = "Ground",
+                    TextureImage = Resource.LightYellow,
+                    Length = 80,
+                    Width = 100,
+                    Height = 0,
+                    Transformation = new()
+                    {
+                        TranslateX = -30,
+                        TranslateY = -50
                     }
                 },
             };
