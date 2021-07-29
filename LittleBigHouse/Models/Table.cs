@@ -10,7 +10,7 @@ namespace LittleBigHouse.Models
             // ground
             gl.PushMatrix();
             gl.Translate(-15, -10, 2);
-            OpenGLHelper.BindTexture(gl, Resource.phong_nen_cam);
+            OpenGLHelper.BindTexture(gl, Resource.Orange);
             OpenGLHelper.DrawBox(gl, 15, 5, 1);
             gl.PopMatrix();
 

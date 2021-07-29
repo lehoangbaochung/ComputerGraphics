@@ -313,7 +313,7 @@ namespace ComputerGraphics
         /// <summary>
         /// Draw a cube
         /// </summary>
-        /// <param name="gl">OpenGL object</param>
+        /// <param name="gl">The OpenGL object</param>
         /// <param name="size">The size of cube</param>
         public static void DrawCube(OpenGL gl, float size)
         {
@@ -361,6 +361,53 @@ namespace ComputerGraphics
             gl.Vertex(-size, size, size);
             gl.Vertex(-size, size, -size);
 
+            gl.End();
+        }
+
+        /// <summary>
+        /// Draw a pyramid
+        /// </summary>
+        /// <param name="gl">The OpenGL object</param>
+        /// <param name="size">The size of pyramid</param>
+        /// <param name="height">The height of pyramid</param>
+        public static void DrawPyramid(OpenGL gl, float size, float height)
+        {
+            var half_size = size * 0.5;
+
+            gl.Begin(OpenGL.GL_TRIANGLES);
+
+            //Front face
+            gl.Normal(0.0, 0.0, 1.0f);
+            gl.TexCoord(0, 0); gl.Vertex(0.0f, height, 0.0f);
+            gl.TexCoord(0, 1); gl.Vertex(-half_size, 0, half_size);
+            gl.TexCoord(1, 0); gl.Vertex(half_size, 0, half_size);
+
+            //left face
+            gl.Normal(-1.0, 0.0, 0.0f);
+            gl.TexCoord(0, 0); gl.Vertex(0.0, height, 0.0);
+            gl.TexCoord(0, 1); gl.Vertex(-half_size, 0.0, -half_size);
+            gl.TexCoord(1, 0); gl.Vertex(-half_size, 0.0, half_size);
+
+            //back face
+            gl.Normal(0.0, 0.0, -1.0f);
+            gl.TexCoord(0, 0); gl.Vertex(0.0f, height, 0.0f);
+            gl.TexCoord(1, 0); gl.Vertex(-half_size, 0, -half_size);
+            gl.TexCoord(0, 1); gl.Vertex(half_size, 0, -half_size);
+
+            //Right face
+            gl.Normal(1.0, 0.0, 0.0f);
+            gl.TexCoord(0, 0); gl.Vertex(0.0, height, 0.0);
+            gl.TexCoord(1, 0); gl.Vertex(half_size, 0.0, -half_size);
+            gl.TexCoord(0, 1); gl.Vertex(half_size, 0.0, half_size);
+            gl.End();
+
+            //Bottom face
+            gl.Begin(OpenGL.GL_QUADS);
+            gl.Normal(0.0, -1.0, 0.0f);
+            gl.TexCoord(0, 0); gl.Vertex(half_size, 0.0, half_size);
+            gl.TexCoord(0, 1); gl.Vertex(half_size, 0.0, -half_size);
+            gl.TexCoord(1, 1); gl.Vertex(-half_size, 0.0, -half_size);
+            gl.TexCoord(0, 1); gl.Vertex(-half_size, 0.0, half_size);
             gl.End();
         }
         #endregion

@@ -15,7 +15,7 @@ namespace ComputerGraphics.Views.Controls
     {
         readonly double aspectRatio = 1.8;
         readonly ArcBallEffect arcBallEffect = new();
-        readonly Vertex cameraPosition = new(10, 10, 30);
+        readonly Vertex cameraPosition = new(-10, -10, 30);
 
         public SceneControl()
         {
@@ -39,6 +39,8 @@ namespace ComputerGraphics.Views.Controls
 
         public virtual void Initialized(object sender, EventArgs e)
         {
+            OpenGLHelper.SetBackgroundColor(OpenGL);
+
             // Remove all default design primitives
             //Scene.SceneContainer.Children.Clear();
 

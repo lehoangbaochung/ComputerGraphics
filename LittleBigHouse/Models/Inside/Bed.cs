@@ -9,7 +9,7 @@ namespace LittleBigHouse.Models.Inside
     {
         public float FootLength { get; set; } = 2;
         public Vertex TopLeft { get; set; } = new(1, 1, 0);
-        public Bitmap TextureImage { get; set; } = Resource.phong_nen_cam;
+        public Bitmap TextureImage { get; set; } = Resource.Orange;
 
         protected override void Draw()
         {

@@ -1,12 +1,14 @@
 ﻿using SharpGL;
+using SharpGL.SceneGraph.Transformations;
 
 namespace ComputerGraphics.Models
 {
     class Grid : SceneElement
     {
-        public float LineWidth { get; set; } = 1.0f;
+        public float LineWidth { get; set; } = 1;
         public int MinValue { get; set; } = -10;
         public int MaxValue { get; set; } = 10;
+        public LinearTransformation Transformation { get; set; } = new();
 
         protected override void Draw()
         {

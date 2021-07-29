@@ -3,11 +3,10 @@ using System.Drawing;
 
 namespace ComputerGraphics.Models
 {
-    public class Box : SceneElement
+    public class Pyramid : SceneElement
     {
-        public float Length { get; set; } = 0;
-        public float Width { get; set; } = 0;
-        public float Height { get; set; } = 0;
+        public float Size { get; set; } = 1;
+        public float Height { get; set; } = 2;
         public Bitmap TextureImage { get; set; }
         public LinearTransformation Transformation { get; set; } = new();
 
@@ -20,7 +19,7 @@ namespace ComputerGraphics.Models
 
             gl.PushMatrix();
             Transformation.Transform(gl);
-            OpenGLHelper.DrawBox(gl, Length, Width, Height);
+            OpenGLHelper.DrawPyramid(gl, Size, Height);
             gl.PopMatrix();
         }
     }

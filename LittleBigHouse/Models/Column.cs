@@ -9,7 +9,7 @@ namespace LittleBigHouse.Models
         public float Length { get; set; } = 1;
         public float Width { get; set; } = 1;
         public float Height { get; set; } = 20;
-        public Bitmap TextureImage { get; set; } = Resource.phong_nen_cam;
+        public Bitmap TextureImage { get; set; } = Resource.Orange;
 
         protected override void Draw()
         {

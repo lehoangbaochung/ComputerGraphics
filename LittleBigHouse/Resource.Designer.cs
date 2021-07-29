@@ -63,29 +63,39 @@ namespace LittleBigHouse {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BigDoor {
+            get {
+                object obj = ResourceManager.GetObject("BigDoor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Bookshelf {
+            get {
+                object obj = ResourceManager.GetObject("Bookshelf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cabinet {
+            get {
+                object obj = ResourceManager.GetObject("Cabinet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cloud {
             get {
                 object obj = ResourceManager.GetObject("Cloud", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cua {
-            get {
-                object obj = ResourceManager.GetObject("cua", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap cua_nha {
-            get {
-                object obj = ResourceManager.GetObject("cua_nha", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +123,9 @@ namespace LittleBigHouse {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap mai_nha {
+        internal static System.Drawing.Bitmap Lawn {
             get {
-                object obj = ResourceManager.GetObject("mai_nha", resourceCulture);
+                object obj = ResourceManager.GetObject("Lawn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +133,9 @@ namespace LittleBigHouse {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap mat_ao {
+        internal static System.Drawing.Bitmap LightYellow {
             get {
-                object obj = ResourceManager.GetObject("mat_ao", resourceCulture);
+                object obj = ResourceManager.GetObject("LightYellow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +143,9 @@ namespace LittleBigHouse {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap nen_vang_nau {
+        internal static System.Drawing.Bitmap LimeGreen {
             get {
-                object obj = ResourceManager.GetObject("nen_vang_nau", resourceCulture);
+                object obj = ResourceManager.GetObject("LimeGreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +153,9 @@ namespace LittleBigHouse {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap phong_nen_cam {
+        internal static System.Drawing.Bitmap Orange {
             get {
-                object obj = ResourceManager.GetObject("phong_nen_cam", resourceCulture);
+                object obj = ResourceManager.GetObject("Orange", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,19 +163,9 @@ namespace LittleBigHouse {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap phong_nen_xanh_la_cay_non {
+        internal static System.Drawing.Bitmap OrangeRed {
             get {
-                object obj = ResourceManager.GetObject("phong_nen_xanh_la_cay_non", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pphong_nen_nau_do {
-            get {
-                object obj = ResourceManager.GetObject("pphong_nen_nau_do", resourceCulture);
+                object obj = ResourceManager.GetObject("OrangeRed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -189,9 +189,9 @@ namespace LittleBigHouse {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Which you want to see the side of house?
-        ///Click &quot;Yes&quot; to see the inside of house.
-        ///Click &quot;No&quot; to see the outside of house.
+        ///   Looks up a localized string similar to Which do you want to see the side of the house?
+        ///Click &quot;Yes&quot; to see inside of the house.
+        ///Click &quot;No&quot; to see outside of the house.
         ///Click &quot;Cancel&quot; to cancel this question..
         /// </summary>
         internal static string QuestionText {
@@ -213,9 +213,39 @@ namespace LittleBigHouse {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap van_go {
+        internal static System.Drawing.Bitmap Roof {
             get {
-                object obj = ResourceManager.GetObject("van_go", resourceCulture);
+                object obj = ResourceManager.GetObject("Roof", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SmallDoor {
+            get {
+                object obj = ResourceManager.GetObject("SmallDoor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sofa {
+            get {
+                object obj = ResourceManager.GetObject("Sofa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Television {
+            get {
+                object obj = ResourceManager.GetObject("Television", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -233,9 +263,29 @@ namespace LittleBigHouse {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Water {
+            get {
+                object obj = ResourceManager.GetObject("Water", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Windows {
             get {
                 object obj = ResourceManager.GetObject("Windows", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Wood {
+            get {
+                object obj = ResourceManager.GetObject("Wood", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

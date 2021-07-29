@@ -37,7 +37,7 @@ namespace LittleBigHouse.Models
             gl.Disable(OpenGL.GL_TEXTURE_2D);
 
             Transform();
-            OpenGLHelper.BindTexture(gl, Resource.pphong_nen_nau_do);
+            OpenGLHelper.BindTexture(gl, Resource.OrangeRed);
             gl.Cylinder(glQuadric, BaseRadius, TopRadius, Height, Slices, Stacks);
 
             gl.PopAttrib();

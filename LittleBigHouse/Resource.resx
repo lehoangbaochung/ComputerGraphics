@@ -118,14 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="BigDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\BigDoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bookshelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Bookshelf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cabinet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Cabinet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Cloud" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Cloud.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cua" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\cua.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cua_nha" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\cua_nha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Grass" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Grass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,23 +136,20 @@
   <data name="GreenLeaf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\GreenLeaf.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mai_nha" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\mai_nha.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Lawn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Lawn.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mat_ao" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\mat_ao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LightYellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\LightYellow.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nen_vang_nau" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\nen_vang_nau.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LimeGreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\LimeGreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="phong_nen_cam" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\phong_nen_cam.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Orange.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="phong_nen_xanh_la_cay_non" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\phong_nen_xanh_la_cay_non.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pphong_nen_nau_do" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\pphong_nen_nau_do.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OrangeRed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\OrangeRed.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ProjectName" xml:space="preserve">
     <value>Little Big House</value>
@@ -159,22 +159,37 @@
     <comment>The caption of question that displays on MessageBox</comment>
   </data>
   <data name="QuestionText" xml:space="preserve">
-    <value>Which you want to see the side of house?
-Click "Yes" to see the inside of house.
-Click "No" to see the outside of house.
+    <value>Which do you want to see the side of the house?
+Click "Yes" to see inside of the house.
+Click "No" to see outside of the house.
 Click "Cancel" to cancel this question.</value>
     <comment>The text of question that displays on MessageBox</comment>
   </data>
   <data name="Road" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Road.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="van_go" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\van_go.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Roof" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Roof.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SmallDoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\SmallDoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sofa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Sofa.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Television" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Television.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Wall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Wall.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Water" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Water.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Windows" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Windows.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wood" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Wood.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
