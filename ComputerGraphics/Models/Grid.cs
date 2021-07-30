@@ -1,29 +1,29 @@
 ﻿using SharpGL;
 using SharpGL.SceneGraph.Transformations;
+using System;
+using System.Drawing;
 
 namespace ComputerGraphics.Models
 {
-    class Grid : SceneElement
+    public class Grid : SceneElement
     {
         public float LineWidth { get; set; } = 1;
         public int MinValue { get; set; } = -10;
         public int MaxValue { get; set; } = 10;
+        public Bitmap TextureImage { get; set; }
         public LinearTransformation Transformation { get; set; } = new();
 
         protected override void Draw()
         {
-            gl.LineWidth(LineWidth);
-            gl.Begin(OpenGL.GL_LINES);
-
-            for (int i = MinValue; i <= MaxValue; i++)
+            if (TextureImage != null)
             {
-                gl.Vertex(i, MinValue, 0);
-                gl.Vertex(i, MaxValue, 0);
-                gl.Vertex(MinValue, i, 0);
-                gl.Vertex(MaxValue, i, 0);
+                OpenGLHelper.BindTexture(gl, TextureImage);
             }
 
-            gl.End();
+            gl.PushMatrix();
+            Transformation.Transform(gl);
+            OpenGLHelper.DrawGrid(gl, MinValue, MaxValue);
+            gl.PopMatrix();
         }
     }
 }

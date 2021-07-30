@@ -424,7 +424,6 @@ namespace ComputerGraphics
         {
             gl.Disable(OpenGL.GL_LIGHTING);
             gl.Disable(OpenGL.GL_LIGHT0);
-            gl.Disable(OpenGL.GL_DEPTH_TEST);
         }
 
         /// <summary>

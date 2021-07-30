@@ -9,7 +9,6 @@ namespace LittleBigHouse.Views.Controls
         public override void Initialized(object sender, EventArgs e)
         {
             base.Initialized(sender, e);
-            //Scene.SceneContainer.Children.Clear();
 
             var sceneElements = new SceneElement[]
             {
@@ -54,7 +53,7 @@ namespace LittleBigHouse.Views.Controls
                 },
                 new Box()
                 {
-                    Name = "FrontDoor",
+                    Name = "Door",
                     TextureImage = Resource.SmallDoor,
                     Length = 1,
                     Width = 5,
@@ -93,7 +92,20 @@ namespace LittleBigHouse.Views.Controls
                 },
                 new Box()
                 {
-                    Name = "FrontGrass",
+                    Name = "Water (the left of house)",
+                    TextureImage = Resource.Water,
+                    Length = 60,
+                    Width = 30,
+                    Height = 0,
+                    Transformation = new()
+                    {
+                        TranslateX = -10,
+                        TranslateY = -50
+                    }
+                },
+                new Box()
+                {
+                    Name = "The front of house",
                     TextureImage = Resource.Lawn,
                     Length = 30,
                     Width = 60,
@@ -102,6 +114,138 @@ namespace LittleBigHouse.Views.Controls
                     {
                         TranslateX = -50,
                         TranslateY = -10
+                    }
+                },
+                new Box()
+                {
+                    Name = "The behind of house",
+                    TextureImage = Resource.Lawn,
+                    Length = 60,
+                    Width = 60,
+                    Height = 0,
+                    Transformation = new()
+                    {
+                        TranslateX = -10,
+                        TranslateY = -10
+                    }
+                },
+                new Box()
+                {
+                    Name = "The opposite of house",
+                    TextureImage = Resource.Lawn,
+                    Length = 30,
+                    Width = 30,
+                    Height = 0,
+                    Transformation = new()
+                    {
+                        TranslateX = -50,
+                        TranslateY = -10
+                    }
+                },
+                new Box()
+                {
+                    Name = "OilCan",
+                    TextureImage = Resource.Orange,
+                    Length = 2,
+                    Width = 2,
+                    Height = 5,
+                    Transformation = new()
+                    {
+                        TranslateX = -25,
+                        TranslateY = -9
+                    }
+                },
+                new Box()
+                {
+                    Name = "Tree",
+                    TextureImage = Resource.Wood,
+                    Length = 1,
+                    Width = 1,
+                    Height = 5,
+                    Transformation = new()
+                    {
+                        TranslateX = 15,
+                        TranslateY = -9
+                    }
+                },
+                new Pyramid()
+                {
+                    Name = "The leaf of tree",
+                    TextureImage = Resource.GreenLeaf,
+                    Size = 4,
+                    Height = 3,
+                    Transformation = new()
+                    {
+                        RotateX = 90,
+                        TranslateX = 15.5f,
+                        TranslateY = -8.5f,
+                        TranslateZ = 5
+                    }
+                },
+                new Box()
+                {
+                    Name = "Tree",
+                    TextureImage = Resource.Wood,
+                    Length = 1,
+                    Width = 1,
+                    Height = 5,
+                    Transformation = new()
+                    {
+                        TranslateX = 20,
+                        TranslateY = -9
+                    }
+                },
+                new Pyramid()
+                {
+                    Name = "The leaf of tree",
+                    TextureImage = Resource.GreenLeaf,
+                    Size = 4,
+                    Height = 3,
+                    Transformation = new()
+                    {
+                        RotateX = 90,
+                        TranslateX = 20.5f,
+                        TranslateY = -8.5f,
+                        TranslateZ = 5
+                    }
+                },
+                new Box()
+                {
+                    Name = "Tree",
+                    TextureImage = Resource.Wood,
+                    Length = 1,
+                    Width = 1,
+                    Height = 5,
+                    Transformation = new()
+                    {
+                        TranslateX = -9,
+                        TranslateY = 15
+                    }
+                },
+                new Pyramid()
+                {
+                    Name = "The leaf of tree",
+                    TextureImage = Resource.GreenLeaf,
+                    Size = 4,
+                    Height = 3,
+                    Transformation = new()
+                    {
+                        RotateX = 90,
+                        TranslateX = -8.5f,
+                        TranslateY = 15.5f,
+                        TranslateZ = 5
+                    }
+                },
+                new Grid()
+                {
+                    LineWidth = 5,
+                    MinValue = -5,
+                    MaxValue = 5,
+                    TextureImage = Resource.OrangeRed,
+                    Transformation = new()
+                    {
+                        RotateY = -90,
+                        TranslateX = -20
                     }
                 }
             };

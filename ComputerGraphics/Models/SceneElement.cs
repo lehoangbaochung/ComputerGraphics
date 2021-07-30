@@ -1,4 +1,5 @@
-﻿using SharpGL;
+﻿using ComputerGraphics.Interfaces;
+using SharpGL;
 using SharpGL.SceneGraph;
 using SharpGL.SceneGraph.Core;
 
@@ -7,7 +8,7 @@ namespace ComputerGraphics.Models
     /// <summary>
     /// The base class for all elements in a scene
     /// </summary>
-    public class SceneElement : SharpGL.SceneGraph.Core.SceneElement, IRenderable
+    public class SceneElement : SharpGL.SceneGraph.Core.SceneElement, IRenderable, IOpenGLLight, IOpenGLMaterial
     {
         protected OpenGL gl;
         protected DisplayList displayList;
@@ -15,7 +16,7 @@ namespace ComputerGraphics.Models
         public float[] LightPosition { get; set; } = { 0, 0, 1, 0 };
         public float[] Ambient { get; set; } = { 1, 0, 0, 1 };
         public float[] Specular { get; set; } = { 1, 1, 1, 1 };
-        public float[] Diffuse { get; set; } = { 0.5f, 0, 0, 1 };
+        public float[] Diffuse { get; set; } = { 1, 1, 1, 1 };
         public float Shininess { get; set; } = 50;
         public bool EnableLighting { get; set; } = false;
 
@@ -42,9 +43,7 @@ namespace ComputerGraphics.Models
 
             if (EnableLighting)
             {
-                gl.Enable(OpenGL.GL_LIGHT0);
-                gl.Enable(OpenGL.GL_LIGHTING);
-                gl.Enable(OpenGL.GL_DEPTH_TEST);
+                OpenGLHelper.EnableLighting(gl);
 
                 gl.Light(OpenGL.GL_LIGHT0, OpenGL.GL_POSITION, LightPosition);
                 gl.Material(OpenGL.GL_FRONT_AND_BACK, OpenGL.GL_AMBIENT, Ambient);
@@ -54,9 +53,7 @@ namespace ComputerGraphics.Models
             }   
             else
             {
-                gl.Disable(OpenGL.GL_LIGHT0);
-                gl.Disable(OpenGL.GL_LIGHTING);
-                gl.Disable(OpenGL.GL_TEXTURE_2D);
+                OpenGLHelper.DisableLighting(gl);
             }    
 
             Draw();

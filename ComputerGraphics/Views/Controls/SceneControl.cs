@@ -13,13 +13,13 @@ namespace ComputerGraphics.Views.Controls
     /// </summary>
     public class SceneControl : SharpGL.SceneControl, IOpenGLEvent, IControlEvent
     {
-        readonly double aspectRatio = 1.8;
+        readonly double aspectRatio = 3;
         readonly Vertex[] cameraPositions =
         {
-            new(-10, -10, 30),
-            new(-10, 10, 30),
-            new(10, -10, 30),
-            new(10, 10, 30),
+            new(-10, -10, 20),
+            new(-10, 10, 20),
+            new(10, -10, 20),
+            new(10, 10, 20),
         };
         readonly ArcBallEffect arcBallEffect = new();
 
@@ -30,6 +30,7 @@ namespace ComputerGraphics.Views.Controls
 
             DrawFPS = false;
             Scene.RenderBoundingVolumes = false;
+            Scene.CurrentCamera.AspectRatio = aspectRatio;
             Scene.CurrentCamera.Position = cameraPositions[0];
 
             OpenGLInitialized += Initialized;
@@ -45,15 +46,17 @@ namespace ComputerGraphics.Views.Controls
 
         public virtual void Initialized(object sender, EventArgs e)
         {
+            OpenGLHelper.SetBackgroundColor(OpenGL);
+
             // Remove all default design primitives
             Scene.SceneContainer.Children.Clear();
 
             // Add a grid
-            Scene.SceneContainer.AddChild(new Grid() 
-            { 
-                MinValue = -50, 
-                MaxValue = 50 
-            });
+            //Scene.SceneContainer.AddChild(new Grid()
+            //{
+            //    MinValue = -50,
+            //    MaxValue = 50
+            //});
         }
 
         public virtual void OnKeyUp(object sender, KeyEventArgs e)

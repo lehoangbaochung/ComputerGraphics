@@ -9,7 +9,6 @@ namespace LittleBigHouse.Views.Controls
         public override void Initialized(object sender, EventArgs e)
         {
             base.Initialized(sender, e);
-            //Scene.SceneContainer.Children.Clear();
 
             var wallSizes = new float[] 
             { 
@@ -24,8 +23,8 @@ namespace LittleBigHouse.Views.Controls
                 5, // width
                 1, // thickness
                 2, // height of feet
-                -25, // translateX
-                -25 // translateY
+                -15, // translateX
+                -10 // translateY
             };
 
             var sceneElements = new SceneElement[]
@@ -293,6 +292,76 @@ namespace LittleBigHouse.Views.Controls
                 },
                 #endregion
 
+                #region Table
+                new Box()
+                {
+                    Name = "The front-left foot of table",
+                    TextureImage = Resource.Sofa,
+                    Length = sofaSizes[2],
+                    Width = sofaSizes[2],
+                    Height = sofaSizes[3],
+                    Transformation = new()
+                    {
+                        TranslateX = sofaSizes[4],
+                        TranslateY = sofaSizes[1] - 1
+                    }
+                },
+                new Box()
+                {
+                    Name = "The front-right foot of table",
+                    TextureImage = Resource.Sofa,
+                    Length = sofaSizes[2],
+                    Width = sofaSizes[2],
+                    Height = sofaSizes[3],
+                    Transformation = new()
+                    {
+                        TranslateX = sofaSizes[4] + sofaSizes[0] - 1,
+                        TranslateY = sofaSizes[1] - 1
+                    }
+                },
+                new Box()
+                {
+                    Name = "The behind-left foot of table",
+                    TextureImage = Resource.Sofa,
+                    Length = sofaSizes[2],
+                    Width = sofaSizes[2],
+                    Height = sofaSizes[3],
+                    Transformation = new()
+                    {
+                        TranslateX = sofaSizes[4],
+                        TranslateY = 0
+                    }
+                },
+                new Box()
+                {
+                    Name = "The behind-right foot of table",
+                    TextureImage = Resource.Sofa,
+                    Length = sofaSizes[2],
+                    Width = sofaSizes[2],
+                    Height = sofaSizes[3],
+                    Transformation = new()
+                    {
+                        TranslateX = sofaSizes[4] + sofaSizes[0] - 1,
+                        TranslateY = 0
+                    }
+                },
+                new Box()
+                {
+                    Name = "The ground of table",
+                    TextureImage = Resource.Sofa,
+                    Length = sofaSizes[0],
+                    Width = sofaSizes[1],
+                    Height = sofaSizes[2],
+                    Transformation = new()
+                    {
+                        TranslateX = sofaSizes[4],
+                        TranslateY = 0,
+                        TranslateZ = sofaSizes[3]
+                    }
+                },
+                #endregion
+
+                #region Others
                 new Box()
                 {
                     Name = "The lawn carpet",
@@ -307,7 +376,6 @@ namespace LittleBigHouse.Views.Controls
                         TranslateY = -50
                     }
                 },
-
                 new Box()
                 {
                     Name = "Water",
@@ -330,7 +398,8 @@ namespace LittleBigHouse.Views.Controls
                     Height = 8,
                     Transformation = new()
                     {
-                        TranslateX = 35
+                        TranslateX = 35,
+                        TranslateY = 2
                     }
                 },
                 new Box()
@@ -344,7 +413,7 @@ namespace LittleBigHouse.Views.Controls
                     {
                         RotateZ = 90,
                         TranslateX = 48,
-                        TranslateY = 25
+                        TranslateY = -40
                     }
                 },
                 new Box()
@@ -365,7 +434,7 @@ namespace LittleBigHouse.Views.Controls
                 new Box()
                 {
                     Name = "Ground",
-                    TextureImage = Resource.LightYellow,
+                    TextureImage = Resource.Wood,
                     Length = 80,
                     Width = 100,
                     Height = 0,
@@ -375,6 +444,7 @@ namespace LittleBigHouse.Views.Controls
                         TranslateY = -50
                     }
                 },
+                #endregion
             };
 
             foreach (var sceneElement in sceneElements) 
